@@ -146,6 +146,12 @@ class ClaudeSDKManager:
         else:
             logger.info("No API key provided, using existing Claude CLI authentication")
 
+        if config.anthropic_base_url:
+            os.environ["ANTHROPIC_BASE_URL"] = config.anthropic_base_url
+            logger.info(
+                "Using provided base URL for Claude SDK", base_url=config.anthropic_base_url
+            )
+
     async def execute_command(
         self,
         prompt: str,

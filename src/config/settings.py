@@ -74,6 +74,10 @@ class Settings(BaseSettings):
         None,
         description="Anthropic API key for SDK (optional if CLI logged in)",
     )
+    anthropic_base_url: Optional[str] = Field(
+        None,
+        description="Base URL for Anthropic API (e.g. for third-party proxies)",
+    )
     claude_model: Optional[str] = Field(
         None, description="Claude model to use (defaults to CLI default if unset)"
     )
